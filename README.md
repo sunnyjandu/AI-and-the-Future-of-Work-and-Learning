@@ -1,25 +1,132 @@
-# Project XYZ
+# AI and the Future of Work and Learning
 
-**Project XYZ** is a comprehensive data analysis tool designed to streamline data exploration, analysis, and visualisation. The tool supports multiple data formats and provides an intuitive interface for both novice and expert data scientists.
+Educational Institutions face increasing pressure to ensure that course content remains relevant in a labour market shaped by rapid advances in artificial intelligence and automation. To make informed decisions about curriculum design, institutions require evidence-based insights into which skills and job roles are most likely to change or decline, and which are expected to remain resilient.
+
+This project uses the datasets from kaggle to support strategic decision-making in course content development, helping Institutions align teaching programmes more closely with future workforce needs.
 
 # ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
 
-## Dataset Content
-* Describe your dataset. Choose a dataset of reasonable size to avoid exceeding the repository's maximum size of 100Gb.
-
-
 ## Business Requirements
-* Describe your business requirements
+1. Identify Future Skill Demands
+- Determine which skills are most resistant to AI-driven automation.
+- Highlight emerging skill areas that should be prioritised in course curricula.
 
+2. Assess Job Vulnerability
+- Identify job roles and career pathways that are at high, medium, or low risk of automation.
+- Understand which types of roles graduates may be more or less prepared for.
+
+3. Support Curriculum Review and Design
+- Identify gaps in current course offerings relative to future job-market needs.
+
+4. Guide Student Employability Strategy
+- Support decisions on employability modules, digital skills training, and transferable skills.
+- Advise students on skill development aligned with future careers.
+
+5. Ensure Ethical and Responsible Use of Data
+
+## Project Aim & Objectives 
+To support Educational Institutions in making informed curriculum decisions by analysing how artificial intelligence is changing job roles and skill requirements in the global labour market.
+
+The project objectives are to:
+1. Analyse labour-market data to identify job roles and skills most affected by AI and automation.
+2. Highlight roles and skills that are likely to decline, evolve, or remain resilient.
+3. Use data visualisation to communicate workforce trends relevant to higher education.
+4. Apply machine-learning techniques to predict future job demand and skill changes.
+5. Develop an interactive dashboard to support evidence-based curriculum design.
+
+## Dataset Content
+I’m using the AI Impact on Jobs dataset from Kaggle. 
+-  1.3M LinkedIn Jobs & Skills 2024 Dataset: [View Here](https://www.kaggle.com/datasets/asaniczka/1-3m-linkedin-jobs-and-skills-2024?utm_source=chatgpt.com) 
+This dataset contains over 1.3 million job adverts collected from LinkedIn and published on Kaggle.
+It shows job titles and the skills employers ask for in real job postings.
+
+In this project, this dataset is used to understand which skills are in demand, which skills are often combined together, and which new or hybrid skills are becoming more important.
+
+- AI Automation Risk by Job Role Dataset: [View Here](https://www.kaggle.com/datasets/khushikyad001/ai-automation-risk-by-job-role?utm_source=chatgpt.com) 
+This dataset, shared on Kaggle, shows how likely different job roles are to be automated.
+Each job role has a score or level that tells whether the role is at low, medium or high risk from AI and automation.
+
+In this project, this dataset is used to understand which jobs are more vulnerable and which jobs are more resilient.
 
 ## Hypothesis and how to validate?
-* List here your project hypothesis(es) and how you envision validating it (them) 
+
+### Hypothesis 1: Human-centred skills and automation risk
+
+Job roles that require more human-centred skills (such as communication, creativity and problem-solving) have lower automation risk than roles based mainly on routine or repetitive tasks.
+
+### Hypothesis 2: Hybrid digital and domain skills
+
+Job roles that combine digital or AI skills with domain knowledge (such as healthcare, business, education or engineering) are growing faster than roles that require only technical skills or only non-technical skills.
+
+### Hypothesis 3: Transferable skills and job resilience
+
+Job roles that require a wider mix of skills (technical, human and business skills) are less vulnerable to automation than roles with a narrow and highly specialised skill set.
 
 ## Project Plan
-* Outline the high-level steps taken for the analysis.
-* How was the data managed throughout the collection, processing, analysis and interpretation steps?
-* Why did you choose the research methodologies you used?
+
+#### Phase 1 - Planning 
+1. Create a GitHub repository
+2. Create these folders:
+data/
+   raw/
+   processed/
+notebooks/
+   etl.ipynb
+   hypothsis.ipynb
+
+3. README.md - Documenting the Process 
+4. Project Kanban Board - To manage the project 
+![alt text](Images/Kanban.png)
+
+#### Phase 2 - ETL 
+
+1. Extract (load the datasets into Python - Pandas )
+
+- Read the LinkedIn dataset
+- Read the automation risk dataset
+- Save as extract.py
+
+2. Transform 
+
+- Clean Data 
+- Split the skills
+- ...
+
+3. Load
+Save final files ready for:
+  - Hypothesis Testing 
+  - PowerBI Dashboard 
+  - MLModel - decision tree classifier 
+
+#### Phase 3 – Testing Hypothesis
+
+- Hypothesis 1: Human-centred skills vs lower automation risk
+- Hypothesis 2: Hybrid digital + domain roles are growing faster
+- Hypothesis 3: Skill diversity → more resilient roles
+
+#### Phase 4 – Build a PowerBI Dashboard
+
+Communicate results to institutions.
+1. Load processed data
+2. Build your visuals - Implement Wireframe 
+![alt text](Images/AI%20Impact%20On%20Job%20Market.png)
+
+#### Phase 5 - Build the data-driven prototype (ML)
+
+-  Build a Decision Tree Classifier
+
+#### Phase 6 – Documentation
+Final Report Must Include:
+
+- Project Aims and Objective 
+- Datasets
+- ETL Process
+- Hypothesis Results
+- Dashboard Screenshots
+- ML results
+- Curriculum Recommendations
+
 
 ## The rationale to map the business requirements to the Data Visualisations
 * List your business requirements and a rationale to map them to the Data Visualisations
