@@ -1,11 +1,10 @@
+# ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+
 # AI and the Future of Work and Learning
 
 Educational Institutions face increasing pressure to ensure that course content remains relevant in a labour market shaped by rapid advances in artificial intelligence and automation. To make informed decisions about curriculum design, institutions require evidence-based insights into which skills and job roles are most likely to change or decline, and which are expected to remain resilient.
 
 This project uses the datasets from kaggle to support strategic decision-making in course content development, helping Institutions align teaching programmes more closely with future workforce needs.
-
-# ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
-
 
 ## Business Requirements
 1. Identify Future Skill Demands
@@ -77,7 +76,7 @@ notebooks/
 
 3. README.md - Documenting the Process 
 4. Project Kanban Board - To manage the project 
-![alt text](Images/Kanban.png)
+![alt text](images/Kanban.png)
 
 #### Phase 2 - ETL 
 
@@ -110,7 +109,7 @@ Save final files ready for:
 Communicate results to institutions.
 1. Load processed data
 2. Build your visuals - Implement Wireframe 
-![alt text](Images/AI%20Impact%20On%20Job%20Market.png)
+![alt text](images/AI_Impact_On_Job_Market.png)
 
 #### Phase 5 - Build the data-driven prototype (ML)
 
@@ -153,8 +152,7 @@ Final Report Must Include:
 * If applicable, include evidence of feedback received (from peers or instructors) and how it improved your approach or understanding.
 
 ## Development Roadmap
-* What challenges did you face, and what strategies were used to overcome these challenges?
-* What new skills or tools do you plan to learn next based on your project experience? 
+Challenges - had to create the repoistory again due to commit issue i was facing - this was due to large data not enough storage space. 
 
 ## Deployment
 ### Heroku
