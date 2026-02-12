@@ -128,6 +128,204 @@ Final Report Must Include:
 
 ## The rationale to map the business requirements to the Data Visualisations
 * List your business requirements and a rationale to map them to the Data Visualisations
+First – a very important data note
+Match rate: 14.4%
+
+This means:
+
+➡️ Only about 14% of job postings could be matched to a role in the automation-risk dataset.
+
+So all your hypothesis tests are based on a much smaller subset of the 50,015 jobs.
+
+That’s not wrong — but it does explain why:
+
+effects look weak
+
+models explain very little variance
+
+You should mention this as a limitation.
+
+✅ H1a
+
+More human-centred skills → lower automation risk
+
+Your regression:
+
+human_centred_index coef = -0.1218
+p < 0.001
+R² = 0.004
+✔ Interpretation
+
+The coefficient is negative
+
+The p-value is significant
+
+So:
+
+👉 Jobs with higher human-centred skills tend to have slightly lower automation risk
+
+But…
+R-squared = 0.004
+
+This means:
+
+👉 human-centred skills explain only 0.4% of the variation
+
+✔ What you should say
+
+H1a is statistically supported, but the effect is very small.
+
+A clean sentence:
+
+Human-centred skills are significantly associated with lower automation risk, however the relationship is weak and explains only a very small proportion of variance.
+
+✅ H1b
+
+Repetitive tasks → higher automation risk
+
+Your regression:
+
+task_repetition_level coef = 0.0025
+p = 0.827
+✔ Interpretation
+
+p-value is very large
+
+coefficient is almost zero
+
+👉 No evidence of a relationship.
+
+✔ What you should say
+
+H1b is not supported.
+
+Simple:
+
+Task repetition level does not significantly predict automation risk in this dataset.
+
+✅ H2a
+
+Tech+Domain roles have lower automation risk than Technical-only
+
+Your results:
+
+Mean risk Tech+Domain    = 0.273
+Mean risk Technical-only = 0.626
+t = -2.237
+one-sided p = 0.036
+✔ Interpretation
+
+Tech+Domain mean is much lower
+
+one-sided p < 0.05
+
+👉 This supports your hypothesis.
+
+✔ What you should say
+
+H2a is supported.
+
+Example sentence:
+
+Roles that combine technical and domain skills have significantly lower automation risk than technical-only roles.
+
+✅ H2b
+
+Tech+Domain roles grow faster than Technical-only
+
+Your results:
+
+Mean growth Tech+Domain    = 0.073
+Mean growth Technical-only = 0.034
+t = 0.581
+one-sided p = 0.292
+✔ Interpretation
+
+Tech+Domain is higher on average
+
+but…
+
+👉 p = 0.292 → not significant
+
+✔ What you should say
+
+H2b is not supported.
+
+You can say:
+
+Although Tech+Domain roles show higher average job growth, the difference is not statistically significant.
+
+✅ Your plots match the statistics
+H1a scatter
+
+You saw a cloud with a very weak downward pattern.
+
+That matches:
+
+R² = 0.004
+
+So visually:
+➡️ weak relationship = correct.
+
+H1b scatter
+
+Completely flat cloud.
+
+That matches:
+
+p = 0.827
+H2 bar charts
+
+Big visual difference for automation risk ✔
+Small and noisy difference for growth ✔
+
+✅ ML prototype
+R^2 : 0.01
+RMSE: 0.266
+✔ Interpretation
+
+The model explains about 1% of variance.
+
+This is not a strong predictive model.
+
+But that is totally fine because your notebook clearly says:
+
+ML prototype (predictive demo)
+
+✔ What you should say
+
+The machine learning model has very limited predictive power and is used only as a demonstration of a simple predictive workflow.
+
+✅ One more important thing you should explicitly mention
+
+Look at this:
+
+Joined df shape: 1,125,625
+Rows after dedupe: 50,015
+
+This large jump happens because:
+
+many job titles match the same role
+
+and roles are duplicated during the merge
+
+You correctly fixed this with:
+
+drop_duplicates("job_link")
+
+So your final dataset is correct — but it is good practice to briefly mention this in your methodology.
+
+✅ Final summary you can literally reuse
+
+You can write something like this:
+
+H1a was supported: human-centred skills were significantly associated with lower automation risk, although the effect size was very small.
+H1b was not supported: task repetition level did not significantly predict automation risk.
+H2a was supported: roles combining technical and domain skills had significantly lower automation risk than technical-only roles.
+H2b was not supported: Tech+Domain roles showed higher average growth, but the difference was not statistically significant.
+
+A key limitation of the study is the low role-matching rate (14.4%), which substantially reduced the effective sample size and may weaken observed relationships.
+
 
 ## Analysis techniques used
 * List the data analysis methods used and explain limitations or alternative approaches.
