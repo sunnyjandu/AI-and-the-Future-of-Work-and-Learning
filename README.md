@@ -50,17 +50,14 @@ In this project, this dataset is used to understand which jobs are more vulnerab
 
 ## Hypothesis and how to validate?
 
-### Hypothesis 1: Human-centred skills and automation risk
+### Hypothesis 1: Human-centred Skills and Automation Risk
 
 Job roles that require more human-centred skills (such as communication, creativity and problem-solving) have lower automation risk than roles based mainly on routine or repetitive tasks.
 
-### Hypothesis 2: Hybrid digital and domain skills
+### Hypothesis 2: Digital and Domain skills
 
 Job roles that combine digital or AI skills with domain knowledge (such as healthcare, business, education or engineering) are growing faster than roles that require only technical skills or only non-technical skills.
 
-### Hypothesis 3: Transferable skills and job resilience
-
-Job roles that require a wider mix of skills (technical, human and business skills) are less vulnerable to automation than roles with a narrow and highly specialised skill set.
 
 ## Project Plan
 
@@ -76,7 +73,7 @@ notebooks/
 
 3. README.md - Documenting the Process 
 4. Project Kanban Board - To manage the project 
-![alt text](images/Kanban.png)
+![alt text](Assets/Kanban_view2.png)
 
 #### Phase 2 - ETL 
 
@@ -90,24 +87,26 @@ notebooks/
 
 - Clean Data 
 - Split the skills
-- ...
+- Duplictates 
+- Aggregate data etc...
 
 3. Load
-Save final files ready for:
-  - Hypothesis Testing 
-  - PowerBI Dashboard 
-  - MLModel - decision tree classifier 
+- Load clean data for next phase
 
-#### Phase 3 – Testing Hypothesis
+#### Phase 3 -Feature Engineering & EDA 
+- Feature Engineering - Create viariables needed for hypothesis testing
+- Descriptive Statistics 
+- Correlation Matrix
 
-- Hypothesis 1: Human-centred skills vs lower automation risk
-- Hypothesis 2: Hybrid digital + domain roles are growing faster
-- Hypothesis 3: Skill diversity → more resilient roles
+#### Phase 4 – Testing Hypothesis
+
+- Hypothesis 1: Human-centred Skills and Automation Risk
+- Hypothesis 2: Hypothesis 2: Digital and Domain skills
 
 #### Phase 4 – Build a PowerBI Dashboard
 
 Communicate results to institutions.
-1. Load processed data
+1. Extract & Load Data
 2. Build your visuals - Implement Wireframe 
 ![alt text](images/AI_Impact_On_Job_Market.png)
 
