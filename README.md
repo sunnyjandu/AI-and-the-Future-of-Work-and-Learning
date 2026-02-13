@@ -54,9 +54,19 @@ In this project, this dataset is used to understand which jobs are more vulnerab
 
 Job roles that require more human-centred skills (such as communication, creativity and problem-solving) have lower automation risk than roles based mainly on routine or repetitive tasks.
 
+H1a: More human-centred skills -> LOWER automation risk
+H1b: Repetitive tasks → HIGHER automation risk
+
+Will validate using regression statistical method
+
 ### Hypothesis 2: Digital and Domain skills
 
 Job roles that combine digital or AI skills with domain knowledge (such as healthcare, business, education or engineering) are growing faster than roles that require only technical skills or only non-technical skills.
+
+H2a: Tech+Domain has LOWER automation risk than Technical-only
+H2b: Tech+Domain has HIGHER growth than Technical-only
+
+Will validate using regression statistical method 
 
 
 ## Project Plan
@@ -107,8 +117,9 @@ notebooks/
 
 Communicate results to institutions.
 1. Extract & Load Data
-2. Build your visuals - Implement Wireframe 
-![alt text](images/AI_Impact_On_Job_Market.png)
+2. Build your visuals - Implement Wireframe
+
+![alt text](Assets/AI_Impact_On_Job_Market.png)
 
 #### Phase 5 - Build the data-driven prototype (ML)
 
@@ -126,267 +137,133 @@ Final Report Must Include:
 - Curriculum Recommendations
 
 
-## The rationale to map the business requirements to the Data Visualisations
-* List your business requirements and a rationale to map them to the Data Visualisations
-First – a very important data note
-Match rate: 14.4%
-
-This means:
-
-➡️ Only about 14% of job postings could be matched to a role in the automation-risk dataset.
-
-So all your hypothesis tests are based on a much smaller subset of the 50,015 jobs.
-
-That’s not wrong — but it does explain why:
-
-effects look weak
-
-models explain very little variance
-
-You should mention this as a limitation.
-
-✅ H1a
-
-More human-centred skills → lower automation risk
-
-Your regression:
-
-human_centred_index coef = -0.1218
-p < 0.001
-R² = 0.004
-✔ Interpretation
-
-The coefficient is negative
-
-The p-value is significant
-
-So:
-
-👉 Jobs with higher human-centred skills tend to have slightly lower automation risk
-
-But…
-R-squared = 0.004
-
-This means:
-
-👉 human-centred skills explain only 0.4% of the variation
-
-✔ What you should say
-
-H1a is statistically supported, but the effect is very small.
-
-A clean sentence:
-
-Human-centred skills are significantly associated with lower automation risk, however the relationship is weak and explains only a very small proportion of variance.
-
-✅ H1b
-
-Repetitive tasks → higher automation risk
-
-Your regression:
-
-task_repetition_level coef = 0.0025
-p = 0.827
-✔ Interpretation
-
-p-value is very large
-
-coefficient is almost zero
-
-👉 No evidence of a relationship.
-
-✔ What you should say
-
-H1b is not supported.
-
-Simple:
-
-Task repetition level does not significantly predict automation risk in this dataset.
-
-✅ H2a
-
-Tech+Domain roles have lower automation risk than Technical-only
-
-Your results:
-
-Mean risk Tech+Domain    = 0.273
-Mean risk Technical-only = 0.626
-t = -2.237
-one-sided p = 0.036
-✔ Interpretation
-
-Tech+Domain mean is much lower
-
-one-sided p < 0.05
-
-👉 This supports your hypothesis.
-
-✔ What you should say
-
-H2a is supported.
-
-Example sentence:
-
-Roles that combine technical and domain skills have significantly lower automation risk than technical-only roles.
-
-✅ H2b
-
-Tech+Domain roles grow faster than Technical-only
-
-Your results:
-
-Mean growth Tech+Domain    = 0.073
-Mean growth Technical-only = 0.034
-t = 0.581
-one-sided p = 0.292
-✔ Interpretation
-
-Tech+Domain is higher on average
-
-but…
-
-👉 p = 0.292 → not significant
-
-✔ What you should say
-
-H2b is not supported.
-
-You can say:
-
-Although Tech+Domain roles show higher average job growth, the difference is not statistically significant.
-
-✅ Your plots match the statistics
-H1a scatter
-
-You saw a cloud with a very weak downward pattern.
-
-That matches:
-
-R² = 0.004
-
-So visually:
-➡️ weak relationship = correct.
-
-H1b scatter
-
-Completely flat cloud.
-
-That matches:
-
-p = 0.827
-H2 bar charts
-
-Big visual difference for automation risk ✔
-Small and noisy difference for growth ✔
-
-✅ ML prototype
-R^2 : 0.01
-RMSE: 0.266
-✔ Interpretation
-
-The model explains about 1% of variance.
-
-This is not a strong predictive model.
-
-But that is totally fine because your notebook clearly says:
-
-ML prototype (predictive demo)
-
-✔ What you should say
-
-The machine learning model has very limited predictive power and is used only as a demonstration of a simple predictive workflow.
-
-✅ One more important thing you should explicitly mention
-
-Look at this:
-
-Joined df shape: 1,125,625
-Rows after dedupe: 50,015
-
-This large jump happens because:
-
-many job titles match the same role
-
-and roles are duplicated during the merge
-
-You correctly fixed this with:
-
-drop_duplicates("job_link")
-
-So your final dataset is correct — but it is good practice to briefly mention this in your methodology.
-
-✅ Final summary you can literally reuse
-
-You can write something like this:
-
-H1a was supported: human-centred skills were significantly associated with lower automation risk, although the effect size was very small.
-H1b was not supported: task repetition level did not significantly predict automation risk.
-H2a was supported: roles combining technical and domain skills had significantly lower automation risk than technical-only roles.
-H2b was not supported: Tech+Domain roles showed higher average growth, but the difference was not statistically significant.
-
-A key limitation of the study is the low role-matching rate (14.4%), which substantially reduced the effective sample size and may weaken observed relationships.
+## The rationale to map the business requirements to the Data Visualisations (Todo)
 
 
 ## Analysis techniques used
-* List the data analysis methods used and explain limitations or alternative approaches.
-* How did you structure the data analysis techniques. Justify your response.
-* Did the data limit you, and did you use an alternative approach to meet these challenges?
-* How did you use generative AI tools to help with ideation, design thinking and code optimisation?
+The project used:
+- Descriptive statistics
+- Regression analysis
+- Hypothesis testing
+- A simple machine-learning prototype
 
-## Ethical considerations
-* Were there any data privacy, bias or fairness issues with the data?
-* How did you overcome any legal or societal issues?
+Descriptive statistics were used to:
+- Summarise automation risk, human-centred skills, and job growth
+- Understand data distribution
+- Support exploratory data analysis
 
-## Dashboard Design
-* List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other item that your dashboard library supports.
-* Later, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project you were confident you would use a given plot to display an insight but subsequently you used another plot type).
-* How were data insights communicated to technical and non-technical audiences?
-* Explain how the dashboard was designed to communicate complex data insights to different audiences. 
+To test Hypothesis 1:
+- Ordinary Least Squares (OLS) regression was used
 
-## Unfixed Bugs
-* Please mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a significant variable to consider, paucity of time and difficulty understanding implementation are not valid reasons to leave bugs unfixed.
-* Did you recognise gaps in your knowledge, and how did you address them?
-* If applicable, include evidence of feedback received (from peers or instructors) and how it improved your approach or understanding.
+To test Hypothesis 2:
+- Independent samples t-tests were used
 
-## Development Roadmap
-Challenges - had to create the repoistory again due to commit issue i was facing - this was due to large data not enough storage space. 
-
-## Deployment
-### Heroku
-
-* The App live link is: https://YOUR_APP_NAME.herokuapp.com/ 
-* Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
-* The project was deployed to Heroku using the following steps.
-
-1. Log in to Heroku and create an App
-2. From the Deploy tab, select GitHub as the deployment method.
-3. Select your repository name and click Search. Once it is found, click Connect.
-4. Select the branch you want to deploy, then click Deploy Branch.
-5. The deployment process should happen smoothly if all deployment files are fully functional. Click now the button Open App on the top of the page to access your App.
-6. If the slug size is too large then add large files not required for the app to the .slugignore file.
+A simple linear regression model was used as:
+- A machine-learning prototype
 
 
-## Main Data Analysis Libraries
-* Here you should list the libraries you used in the project and provide an example(s) of how you used these libraries.
+## Ethical considerations (Redo)
+This project uses two publicly available Kaggle datasets: a LinkedIn job postings and skills dataset and an AI automation risk by job role dataset. Both datasets contain aggregated information about job roles and skills. They do not include personal names, contact details, or other identifying information. Therefore, there is no direct risk to individual privacy.
 
+However, some ethical concerns remain. The LinkedIn job postings dataset only includes jobs advertised on LinkedIn and collected by the dataset authors. This creates platform bias. Jobs from organisations or regions that do not widely use LinkedIn may be under-represented. As a result, smaller employers, informal labour markets, and roles in developing regions may not be fully reflected in the data.
 
-## Credits 
-
-* In this section, you need to reference where you got your content, media and extra help from. It is common practice to use code from other repositories and tutorials, however, it is important to be very specific about these sources to avoid plagiarism. 
-* You can break the credits section up into Content and Media, depending on what you have included in your project. 
-
-### Content 
-
-- The text for the Home page was taken from Wikipedia Article A
-- Instructions on how to implement form validation on the Sign-Up page was taken from [Specific YouTube Tutorial](https://www.youtube.com/)
-- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
-
-### Media
-
-- The photos used on the home and sign-up page are from This Open-Source site
-- The images used for the gallery page were taken from this other open-source site
+The automation risk and skill measures in the AI automation risk dataset are based on secondary sources or modelling assumptions rather than direct observation. These estimates may reflect the judgement of the dataset creators and may include hidden assumptions about which jobs are more likely to be automated.
 
 
 
-## Acknowledgements (optional)
-* Thank the people who provided support through this project.
+## Dashboard Design (Redo)
+The project uses a single-page interactive dashboard titled “AI, Skills and Automation Risk in Job Postings.”
+The dashboard contains several components designed to provide both high-level summary insights and detailed analytical visualisations.
+
+Four KPI cards are displayed at the top of the dashboard:
+- Total job postings – the total number of job records included in the dashboard
+- Average automation risk – the mean automation risk score
+- Average job growth – the mean projected job growth rate
+- Average human-centred skills – the mean human-centred skills index
+These cards provide a high-level overview of the dataset before users explore more detailed visualisations.
+
+Scatter Plot – Human-Centred Skills and Automation Risk (H1a)
+A scatter plot visualises the relationship between human-centred skills (x-axis) and automation risk (y-axis). Each point represents a job posting. This visual supports the analysis of Hypothesis 1a by illustrating the continuous relationship between the two variables.
+
+Bar Chart – Automation Risk by Skill Group (H2a)
+A bar chart compares the average automation risk between two groups:
+- High AI and high domain knowledge roles (Tech+Domain proxy)
+- High AI and low domain knowledge roles (Technical-only proxy)
+Bar Chart – Job Growth by Skill Group (H2b)
+A second bar chart compares the average job growth rate between the same two skill groups. This visual supports Hypothesis 2b.
+
+Column Chart – Distribution of Automation Risk
+A column chart displays the distribution of job postings across three automation-risk bands:
+- Low
+- Medium
+- High
+This chart provides descriptive and contextual information about the dataset.
+
+Interactive Controls (Slicers)
+The dashboard includes interactive slicers that allow users to filter the data dynamically:
+- Automation risk band – allows users to filter jobs by risk category
+- Job role (optional slicer) – allows exploration of individual job roles
+These slicers function as interactive filtering tools and enable users to explore different subsets of the data.
+
+Communication of Insights to Technical and Non-Technical Audiences
+The dashboard was designed to support both technical and non-technical audiences.
+
+For technical audiences:
+- Precise quantitative measures (average risk and growth rates) are displayed.
+- Hypothesis labels (H1a, H2a, H2b) clearly link each visual to the statistical analysis performed in Python.
+- Consistent variable names are maintained between the analytical pipeline and the dashboard.
+- Visual comparisons replicate the structure of the statistical tests conducted in the notebook.
+
+For non-technical audiences:
+Complex numerical outputs (such as regression tables and p-values) are replaced with intuitive visual comparisons.
+- Bar charts and scatter plots present easily interpretable patterns.
+- KPI cards summarise key metrics without requiring statistical knowledge.
+- Filters allow users to interactively explore the data without needing to understand the underlying model.
+- Dashboard Design for Communicating Complex Insights
+
+The dashboard was structured to guide users progressively from overview to analytical insight.
+At the top of the page, summary cards present high-level metrics that establish immediate context. The scatter plot is positioned prominently to communicate the continuous relationship between human-centred skills and automation risk. This is followed by grouped bar charts that focus attention on skill-group comparisons relevant to the project hypotheses. Finally, the distribution chart provides contextual information about how automation risk is distributed across the dataset.
+Clear titles and hypothesis labels explicitly link each visual to a research question. The use of simple colour schemes, limited chart types, and consistent grouping definitions reduces cognitive load and prevents overwhelming non-technical users.
+Interactive slicers enable users to explore the same insights across different subsets of the data, supporting exploratory analysis while preserving a coherent analytical narrative.
+Overall, the dashboard translates complex, multi-step statistical and data-engineering processes into an accessible and structured visual narrative for both technical and non-technical audiences.
+
+ 'The published dashboard can be found here: link' Dashboard [View Here](https://app.powerbi.com/links/YAjlzsqQEM?ctid=c233c072-135b-431d-af59-35e05babf941&pbi_source=linkShare) 
+
+
+## Development roadmap (Redo)
+The project followed an iterative development process that was driven by both technical constraints and data quality challenges.
+
+An early technical issue occurred when attempting to commit the full LinkedIn job postings dataset, which contains over one million records. Due to repository size and storage limitations, the repository had to be recreated after repeated commit failures. To resolve this issue, the dataset was trimmed to a manageable subset of approximately 50,000 job postings prior to analysis.
+
+This reduction enabled stable version control and faster local processing but also directly affected subsequent analysis. In particular, reducing the dataset decreased the number of job postings that could be matched to the automation risk dataset, which in turn affected the statistical power of hypothesis testing. As a result, elements of the analytical approach were revised, including the grouping strategy used in Hypothesis 2.
+
+The development process therefore progressed through the following stages: repository setup and data ingestion; identification of data storage and version control constraints; dataset sub-sampling and trimming; data cleaning, normalisation, and role matching; feature engineering and hypothesis testing; dashboard development and iterative visual refinement; and documentation and ethical review.
+
+This roadmap reflects the need to balance computational feasibility with analytical rigour throughout the project.
+
+## Main data analysis libraries
+Python Libraries Used:
+- Pandas: Data loading, cleaning, merging and feature engineering.
+- NumPy: Used to support numerical operations and missing value handling.
+- SciPy: To conduct statistical hypothesis testing.
+- Statsmodels: Used to estimate linear regression models for Hypothesis.
+- Scikit-learn: Used to build a simple predictive prototype model.
+
+## Credits & Content
+The datasets used in this project were obtained from Kaggle:
+- LinkedIn Jobs and Skills Dataset (2024), Kaggle
+- AI Automation Risk by Job Role Dataset, Kaggle
+
+Generative AI tools (ChatGPT, Github Chat) were used for:
+- Ideas and brainstorming
+- Support in data analysis workflow coding to achieve the desired results
+- EDA & hypothesthis testing choices and explanations. 
+
+## Media
+No external images, photographs or multimedia assets were used in this project.
+Dashboard wireframe - created using balsamiq
+Kanband snapshot - Github Kanban board 
+Dashboard Snapshot - PowerBI Dashboard 
+
+## Acknowledgements 
+I would like to express my gratitude to my facilitator and cohorts for support throughout this project.
