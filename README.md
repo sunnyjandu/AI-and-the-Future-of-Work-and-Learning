@@ -137,7 +137,67 @@ Final Report Must Include:
 - Curriculum Recommendations
 
 
-## The rationale to map the business requirements to the Data Visualisations (Todo)
+## Rationale (Redo)
+#### Data Limitation
+Only 14.4% of the 50,015 job postings could be matched to the automation-risk dataset. This means that all tests, models, and comparisons are based on a much smaller sample.
+
+Because of this:
+- The results may not fully represent the wider job market.
+- Relationships may appear weaker than they actually are.
+
+During the merging process, multiple job postings matched the same role. This created duplicate rows. The dataset was cleaned by removing duplicates using unique job links. This step is reported clearly to ensure transparency and accuracy.
+
+#### Hypothesis 1 – Human-Centred Skills and Automation Risk
+To examine whether jobs that require more human-centred skills (such as communication and creativity) are less exposed to automation risk.
+
+A scatter plot is appropriate because it:
+- Shows all individual data points
+- Displays the full pattern of the data
+- Helps identify whether a relationship exists
+- Allows us to see whether the relationship looks linear
+
+For H1a (human-centred skills vs automation risk):
+- A slight downward trend is visible.
+- This suggests that higher human-centred skills may be linked to slightly lower automation risk.
+- However, the relationship is very weak.
+- The very low R² (0.004) shows that the effect is small.
+
+For H1b (task repetition vs automation risk):
+- The plot looks flat and scattered.
+- No clear pattern is visible.
+- This confirms the statistical result that task repetition does not significantly predict automation risk.
+
+#### Hypothesis 2 – Digital and Domain Skills
+To compare:
+- Roles that combine technical and domain skills (Tech+Domain), and 
+- Roles that mainly require technical skills 
+In terms of:
+- Automation risk
+- Job growth
+
+The goal here is to compare group averages. A bar chart is suitable because it:
+- Clearly shows differences between groups
+- Is easy to interpret
+- Matches the statistical method used (t-tests)
+
+For H2a (automation risk):
+- There is a clear difference between the two groups.
+- Tech+Domain roles show lower automation risk.
+- This matches the statistically significant result.
+
+For H2b (job growth):
+- The difference between groups is small.
+- The bars are close together.
+- This reflects the non-significant result.
+
+#### Machine Learning Prototype
+To test whether automation risk can be predicted using selected skill variables.
+The goal was to demonstrate the modelling process, not to build a production tool.
+Instead of showing visuals, the model performance metrics (R² and RMSE) were reported.
+- The R² value is very low (~0.01).
+- This means the model explains only a small part of the variation.
+- The model is not suitable for real-world prediction.
+- It is included as a proof of concept only.
 
 
 ## Analysis techniques used
