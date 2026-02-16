@@ -137,7 +137,7 @@ Final Report Must Include:
 - Curriculum Recommendations
 
 
-## Rationale (Redo)
+## Rationale 
 #### Data Limitation
 Only 14.4% of the 50,015 job postings could be matched to the automation-risk dataset. This means that all tests, models, and comparisons are based on a much smaller sample.
 
@@ -148,54 +148,38 @@ Because of this:
 During the merging process, multiple job postings matched the same role. This created duplicate rows. The dataset was cleaned by removing duplicates using unique job links. This step is reported clearly to ensure transparency and accuracy.
 
 #### Hypothesis 1 – Human-Centred Skills and Automation Risk
-To examine whether jobs that require more human-centred skills (such as communication and creativity) are less exposed to automation risk.
+The analysis examined whether jobs that require higher levels of human-centred skills, such as communication and creativity, are less exposed to automation risk.
 
-A scatter plot is appropriate because it:
-- Shows all individual data points
-- Displays the full pattern of the data
-- Helps identify whether a relationship exists
-- Allows us to see whether the relationship looks linear
+A scatter plot was used to assess the relationship between human-centred skills and automation risk, as it allows all individual data points to be visualised and helps identify whether a linear relationship exists.
 
-For H1a (human-centred skills vs automation risk):
-- A slight downward trend is visible.
-- This suggests that higher human-centred skills may be linked to slightly lower automation risk.
-- However, the relationship is very weak.
-- The very low R² (0.004) shows that the effect is small.
+For H1a (human-centred skills vs. automation risk), a slight downward trend was observed. This suggests that roles requiring higher levels of human-centred skills tend to have marginally lower automation risk. However, the relationship was extremely weak. The very low R² value (0.004) indicates that human-centred skills explain only a very small proportion of the variation in automation risk.
+![alt text](image.png)
 
-For H1b (task repetition vs automation risk):
-- The plot looks flat and scattered.
-- No clear pattern is visible.
-- This confirms the statistical result that task repetition does not significantly predict automation risk.
+For H1b (task repetition vs. automation risk), the scatter plot appeared flat and widely dispersed, with no visible pattern. This supports the statistical results, which showed that task repetition does not significantly predict automation risk.
+![alt text](image-1.png)
 
 #### Hypothesis 2 – Digital and Domain Skills
-To compare:
-- Roles that combine technical and domain skills (Tech+Domain), and 
-- Roles that mainly require technical skills 
-In terms of:
-- Automation risk
-- Job growth
 
-The goal here is to compare group averages. A bar chart is suitable because it:
-- Clearly shows differences between groups
-- Is easy to interpret
-- Matches the statistical method used (t-tests)
+The second analysis compared roles that combine technical and domain expertise (Tech+Domain) with roles that primarily require technical skills.
 
-For H2a (automation risk):
-- There is a clear difference between the two groups.
-- Tech+Domain roles show lower automation risk.
-- This matches the statistically significant result.
+The comparison focused on two outcomes: automation risk and job growth. Bar charts were used to compare group averages, as they clearly display differences between categories and align with the t-test methodology applied in the statistical analysis.
 
-For H2b (job growth):
-- The difference between groups is small.
-- The bars are close together.
-- This reflects the non-significant result.
+For H2a (automation risk), a clear difference between the two groups was observed. Tech+Domain roles demonstrated lower average automation risk compared to technical-only roles. This visual difference aligns with the statistically significant result obtained from the hypothesis test.
+![alt text](image-2.png)
+
+For H2b (job growth), Tech + Domain roles show a higher average job growth rate than technical-only roles. However, this difference is not statistically significant (p = 0.292). Although the bar chart indicates a visual difference between the groups, the statistical test suggests that this variation may be due to chance. Therefore, there is insufficient evidence to conclude that combining technical and domain skills significantly influences projected job growth in this dataset.
+![alt text](image-3.png)
 
 #### Machine Learning Prototype
 To test whether automation risk can be predicted using selected skill variables.
-The goal was to demonstrate the modelling process, not to build a production tool.
 Instead of showing visuals, the model performance metrics (R² and RMSE) were reported.
-- The R² value is very low (~0.01).
-- This means the model explains only a small part of the variation.
+
+ML results
+- R^2 : 0.01
+- RMSE: 0.266 
+
+This means:
+ - The model explains only a small part of the variation.
 - The model is not suitable for real-world prediction.
 - It is included as a proof of concept only.
 
@@ -222,84 +206,93 @@ A simple linear regression model was used as:
 - A machine-learning prototype
 
 
-## Ethical considerations (Redo)
+## Ethical considerations
 This project uses two publicly available Kaggle datasets: a LinkedIn job postings and skills dataset and an AI automation risk by job role dataset. Both datasets contain aggregated information about job roles and skills. They do not include personal names, contact details, or other identifying information. Therefore, there is no direct risk to individual privacy.
 
-However, some ethical concerns remain. The LinkedIn job postings dataset only includes jobs advertised on LinkedIn and collected by the dataset authors. This creates platform bias. Jobs from organisations or regions that do not widely use LinkedIn may be under-represented. As a result, smaller employers, informal labour markets, and roles in developing regions may not be fully reflected in the data.
+However, some ethical concerns remain. The LinkedIn job postings dataset includes only jobs advertised on LinkedIn and collected by the dataset authors. This creates platform bias. Jobs from organisations or regions that do not widely use LinkedIn may be underrepresented. As a result, smaller employers, informal labour markets, and roles in developing regions may not be fully represented in the data.
 
-The automation risk and skill measures in the AI automation risk dataset are based on secondary sources or modelling assumptions rather than direct observation. These estimates may reflect the judgement of the dataset creators and may include hidden assumptions about which jobs are more likely to be automated.
-
-
-
-## Dashboard Design (Redo)
-The project uses a single-page interactive dashboard titled “AI, Skills and Automation Risk in Job Postings.”
-The dashboard contains several components designed to provide both high-level summary insights and detailed analytical visualisations.
-
-Four KPI cards are displayed at the top of the dashboard:
-- Total job postings – the total number of job records included in the dashboard
-- Average automation risk – the mean automation risk score
-- Average job growth – the mean projected job growth rate
-- Average human-centred skills – the mean human-centred skills index
-These cards provide a high-level overview of the dataset before users explore more detailed visualisations.
-
-Scatter Plot – Human-Centred Skills and Automation Risk (H1a)
-A scatter plot visualises the relationship between human-centred skills (x-axis) and automation risk (y-axis). Each point represents a job posting. This visual supports the analysis of Hypothesis 1a by illustrating the continuous relationship between the two variables.
-
-Bar Chart – Automation Risk by Skill Group (H2a)
-A bar chart compares the average automation risk between two groups:
-- High AI and high domain knowledge roles (Tech+Domain proxy)
-- High AI and low domain knowledge roles (Technical-only proxy)
-Bar Chart – Job Growth by Skill Group (H2b)
-A second bar chart compares the average job growth rate between the same two skill groups. This visual supports Hypothesis 2b.
-
-Column Chart – Distribution of Automation Risk
-A column chart displays the distribution of job postings across three automation-risk bands:
-- Low
-- Medium
-- High
-This chart provides descriptive and contextual information about the dataset.
-
-Interactive Controls (Slicers)
-The dashboard includes interactive slicers that allow users to filter the data dynamically:
-- Automation risk band – allows users to filter jobs by risk category
-- Job role (optional slicer) – allows exploration of individual job roles
-These slicers function as interactive filtering tools and enable users to explore different subsets of the data.
-
-Communication of Insights to Technical and Non-Technical Audiences
-The dashboard was designed to support both technical and non-technical audiences.
-
-For technical audiences:
-- Precise quantitative measures (average risk and growth rates) are displayed.
-- Hypothesis labels (H1a, H2a, H2b) clearly link each visual to the statistical analysis performed in Python.
-- Consistent variable names are maintained between the analytical pipeline and the dashboard.
-- Visual comparisons replicate the structure of the statistical tests conducted in the notebook.
-
-For non-technical audiences:
-Complex numerical outputs (such as regression tables and p-values) are replaced with intuitive visual comparisons.
-- Bar charts and scatter plots present easily interpretable patterns.
-- KPI cards summarise key metrics without requiring statistical knowledge.
-- Filters allow users to interactively explore the data without needing to understand the underlying model.
-- Dashboard Design for Communicating Complex Insights
-
-The dashboard was structured to guide users progressively from overview to analytical insight.
-At the top of the page, summary cards present high-level metrics that establish immediate context. The scatter plot is positioned prominently to communicate the continuous relationship between human-centred skills and automation risk. This is followed by grouped bar charts that focus attention on skill-group comparisons relevant to the project hypotheses. Finally, the distribution chart provides contextual information about how automation risk is distributed across the dataset.
-Clear titles and hypothesis labels explicitly link each visual to a research question. The use of simple colour schemes, limited chart types, and consistent grouping definitions reduces cognitive load and prevents overwhelming non-technical users.
-Interactive slicers enable users to explore the same insights across different subsets of the data, supporting exploratory analysis while preserving a coherent analytical narrative.
-Overall, the dashboard translates complex, multi-step statistical and data-engineering processes into an accessible and structured visual narrative for both technical and non-technical audiences.
-
- 'The published dashboard can be found here: link' Dashboard [View Here](https://app.powerbi.com/links/YAjlzsqQEM?ctid=c233c072-135b-431d-af59-35e05babf941&pbi_source=linkShare) 
+The automation risk and skill measures in the AI automation risk dataset are based on secondary sources or modelling assumptions rather than direct observation. These estimates may reflect the judgement of the dataset creators and may contain hidden assumptions about which jobs are more likely to be automated.
 
 
-## Development roadmap (Redo)
-The project followed an iterative development process that was driven by both technical constraints and data quality challenges.
 
-An early technical issue occurred when attempting to commit the full LinkedIn job postings dataset, which contains over one million records. Due to repository size and storage limitations, the repository had to be recreated after repeated commit failures. To resolve this issue, the dataset was trimmed to a manageable subset of approximately 50,000 job postings prior to analysis.
+## Dashboard Design
+The final dashboard differs in several respects from the original wireframe design.
 
-This reduction enabled stable version control and faster local processing but also directly affected subsequent analysis. In particular, reducing the dataset decreased the number of job postings that could be matched to the automation risk dataset, which in turn affected the statistical power of hypothesis testing. As a result, elements of the analytical approach were revised, including the grouping strategy used in Hypothesis 2.
+#### Structural Differences
+In the wireframe, four KPI cards were proposed:
+- Total job postings
+- Average automation risk
+- Average job growth
+- Average human-centred skills
 
-The development process therefore progressed through the following stages: repository setup and data ingestion; identification of data storage and version control constraints; dataset sub-sampling and trimming; data cleaning, normalisation, and role matching; feature engineering and hypothesis testing; dashboard development and iterative visual refinement; and documentation and ethical review.
+In the implemented dashboard, these KPIs are displayed as:
+- Average growth
+- Average risk
+- Average human-centred skills
+- Jobs count
 
-This roadmap reflects the need to balance computational feasibility with analytical rigour throughout the project.
+While the metrics are largely consistent, the wording has been simplified.
+
+#### Slicers and Filters
+
+The wireframe proposed automation risk band and job role as primary slicers.
+In the final dashboard:
+- A Skill Group slicer is included.
+- A Risk Band slicer is present (High, Low, Medium).
+This represents a shift from role-level filtering to skill-group-level filtering, placing greater emphasis on hypothesis testing rather than exploratory job-level analysis.
+
+#### Visualisations
+Scatter Plot (H1a)
+The scatter plot remains consistent with the wireframe. It shows:
+- Human-Centred Index (x-axis)
+- Automation Risk Score (y-axis)
+However, the implemented version contains a very high density of points, which slightly reduces interpretability compared to the cleaner conceptual layout shown in the wireframe.
+
+Bar Charts (H2a and H2b)
+The wireframe proposed two grouped comparisons:
+- Automation risk by skill group
+- Job growth by skill group
+
+In the final dashboard:
+- H2a (Average Automation Risk by Skill Group) is implemented.
+- H2b (Average Job Growth by Skill Group) is implemented.
+
+One comparison includes “All Other Roles” instead of strictly maintaining the original two proxy categories.
+This slightly modifies the original grouping logic but maintains alignment with the research hypotheses.
+
+Distribution Chart
+The column chart showing the distribution of automation risk (Low, Medium, High) is implemented as planned. This visual provides contextual support and matches the wireframe’s descriptive intent.
+
+Compared to the wireframe:
+- The final dashboard places the title centrally (“AI and the Future of Work and Learning”), to make it more presentation-oriented.
+- KPI cards are positioned prominently but use stronger colour contrasts than initially suggested.
+- Visual spacing is slightly tighter, particularly around the scatter plot.
+
+Overall:
+- All core hypotheses (H1a, H2a, H2b) are represented.
+- Summary metrics are displayed clearly.
+- Distribution context is preserved.
+
+However, there are three key differences:
+- Filtering emphasis shifted from job-role exploration to skill-group comparison.
+- Visual density (especially in the scatter plot) is higher than in the wireframe.
+- The final layout is more presentation-driven, with stronger styling choices.
+
+Overall, the dashboard successfully translates the wireframe into a functional and visually coherent analytical tool, with minor structural and stylistic deviations.
+
+ 'The published dashboard can be found here: [View Here](https://app.powerbi.com/links/YAjlzsqQEM?ctid=c233c072-135b-431d-af59-35e05babf941&pbi_source=linkShare) 
+
+
+## Development roadmap
+The project followed an iterative development process that was shaped by technical limitations and data quality issues.
+
+An early technical problem occurred when attempting to commit the full LinkedIn job postings dataset, which contained over one million records. Due to repository size and storage limits, the repository had to be recreated after several failed commit attempts. To solve this problem, the dataset was reduced to approximately 50,000 job postings before analysis began.
+
+This smaller dataset allowed for stable version control and faster local processing, but it also affected later stages of analysis. In particular, reducing the dataset limited the number of job postings that could be matched with the automation risk dataset. This weakened the statistical reliability of the hypothesis testing. As a result, parts of the analytical approach were adjusted, including the grouping method used in Hypothesis 2.
+
+The development process moved through several stages: setting up the repository and importing the data, identifying storage and version control limitations, reducing the dataset, cleaning and matching the data, carrying out feature engineering and hypothesis testing, developing and refining the dashboard, and completing documentation.
+
+Overall, this roadmap demonstrates the need to balance practical computing limitations with careful and rigorous analysis throughout the project.
 
 ## Main data analysis libraries
 Python Libraries Used:
